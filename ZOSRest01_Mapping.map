@@ -9,13 +9,9 @@
         <input namespace="http://www.ibm.com/iib/msl/json" path="$var/mb:msg(JSON,assembly,JSON,Properties)" var="MessageAssembly">
             <cast castType="userDefined" path="$MessageAssembly/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONObject" ref="var"/>
         </input>
-        <output namespace="http://www.ibm.com/iib/msl/json" path="$var1/mb:msg(JSON,assembly,JSON,LocalEnvironment,Properties)" var="MessageAssembly1">
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var1/mb:msg(JSON,assembly,JSON,LocalEnvironment,Properties,HTTPInputHeader)" var="MessageAssembly1">
             <cast castType="userDefined" path="$MessageAssembly1/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONObject" ref="var1"/>
         </output>
-        <move>
-            <input path="$MessageAssembly/Properties"/>
-            <output path="$MessageAssembly1/Properties"/>
-        </move>
         <expression>
             <output path="$MessageAssembly1/LocalEnvironment/Destination/HTTP/RequestURL"/>
             <code lang="xpath">iib:getUserDefinedProperty("REST_URL")</code>
@@ -28,5 +24,12 @@
             <output path="$MessageAssembly1/LocalEnvironment/Destination/HTTP/RequestLine/Method"/>
             <code lang="xpath">iib:getUserDefinedProperty("HTTP_METHOD")</code>
         </expression>
+        <move>
+            <input path="$MessageAssembly/Properties"/>
+            <output path="$MessageAssembly1/Properties"/>
+        </move>
+        <assign value="application/json">
+            <output path="$MessageAssembly1/HTTPInputHeader/Content-Type"/>
+        </assign>
     </mappingDeclaration>
 </mappingRoot>

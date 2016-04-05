@@ -25,6 +25,8 @@ public class PreTransform extends MbJavaComputeNode {
 				byte[] bs = inMessage.getRootElement().getFirstElementByPath("JSON/Data").toBitstream(null, null, null, 0, 1208, 0);
 			    String inputJson = new String(bs, "UTF-8"); 
 			    String outputJson = new Transformation().convertJsonToJson(inputJson);
+			    
+			    //TODO Write this outputJson to outMessage
 			}
 			
 			outAssembly = new MbMessageAssembly(inAssembly, outMessage);

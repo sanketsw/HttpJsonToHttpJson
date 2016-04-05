@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>JsonJsonApplicationTransformJava</project>
+		<project>JsonJsonApplicationFlowTest</project>
 		<project>JsonJsonApplicationJava</project>
 	</projects>
 	<buildSpec>
