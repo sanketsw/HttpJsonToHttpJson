@@ -1,16 +1,14 @@
 import com.anz.Util;
 import com.api.Transformation;
 import com.ibm.broker.javacompute.MbJavaComputeNode;
-import com.ibm.broker.plugin.MbElement;
 import com.ibm.broker.plugin.MbException;
-import com.ibm.broker.plugin.MbJSON;
 import com.ibm.broker.plugin.MbMessage;
 import com.ibm.broker.plugin.MbMessageAssembly;
 import com.ibm.broker.plugin.MbOutputTerminal;
 import com.ibm.broker.plugin.MbUserException;
 
 
-public class PreTransform extends MbJavaComputeNode {
+public class PostTransform extends MbJavaComputeNode {
 
 	public void evaluate(MbMessageAssembly inAssembly) throws MbException {
 		MbOutputTerminal out = getOutputTerminal("out");
@@ -20,21 +18,15 @@ public class PreTransform extends MbJavaComputeNode {
 		MbMessageAssembly outAssembly = null;
 		try {
 			// create new message as a copy of the input
-			MbMessage outMessage = new MbMessage(inMessage);						
+			MbMessage outMessage = new MbMessage(inMessage);
 			outAssembly = new MbMessageAssembly(inAssembly, outMessage);
 			// ----------------------------------------------------------
 			// Add user code below
 			
-			MbMessage localEnv = inAssembly.getLocalEnvironment();
-			String httpMehtod = localEnv.getRootElement().getFirstElementByPath("/Destination/HTTP/RequestLine/Method").getValueAsString();
-			if(httpMehtod.contains("POST")) {	
-				
-				// Transform the input message
-			    String outputJson = new Transformation().transformRequestData(Util.getJsonData(inMessage));
-			    
-			    //Write this outputJson to outMessage
-			    Util.replaceJsonData(outMessage, outputJson);
-			}
+			// Transform the input message
+		    String outputJson = new Transformation().transformResponseData(Util.getJsonData(inMessage));		    
+		    //Write this outputJson to outMessage
+		    Util.replaceJsonData(outMessage, outputJson);
 
 			// End of user code
 			// ----------------------------------------------------------

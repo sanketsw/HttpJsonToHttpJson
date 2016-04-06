@@ -52,6 +52,11 @@ public class TestUtil extends TestCase {
 				//Trace
 				System.out.println("serverproxy status, running = " + serverProxy.isRunning());
 				
+				System.out.println("clear Recorded Test Data");
+				serverProxy.clearRecordedTestData();
+				serverProxy.setInjectionMode(AttributeConstants.MODE_DISABLED);
+				serverProxy.setTestRecordMode(AttributeConstants.MODE_DISABLED);
+				
 				// ENABLE injection and recording mode
 				serverProxy.setInjectionMode(AttributeConstants.MODE_ENABLED);
 				serverProxy.setTestRecordMode(AttributeConstants.MODE_ENABLED);
