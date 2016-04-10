@@ -28,7 +28,7 @@ This is JSON to JSON conversion REST API implemented in IIB 10.0.0.4 to demonstr
 ### How to import the project in IIB
 1. In IIB toolkit, goto Window -> open perspective -> Git. If you dont see Git Repositories view, then goto Window -> Show view -> Git Repositories
 
-2. In your git repositories view select -> **clone a git repository** -> Enter credentials -> After import is finished, right click on the repository and **import projects** -> import as exisitng projects -> select all projects.
+2. In your git repositories view select -> **clone a git repository** -> Enter https://github.com/sanketsw/JsonJsonApplication.git and credentials -> After import is finished, right click on the repository and **import projects** -> import as exisitng projects -> select all projects.
 
 3. Do the above step for the ProcessingCore repository as well. https://github.com/sanketsw/ProcessingCore.git
  
