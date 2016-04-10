@@ -1,7 +1,7 @@
 # JsonJsonApplication
 
 This is JSON to JSON conversion REST API implemented in IIB 10.0.0.4 to demonstrate a common framework. This framework is desinged with careful consideration of 12 factors for creating cloud ready next generation architecture and also will perfectly integrate with DevOps processes in order to increase development and deployment efficiency. This framework includes:
-- **Common ProcessingCore Framework** to bring in consistency of rules across applications. This includes:
+- **Common ProcessingCore Framework** (https://github.com/sanketsw/ProcessingCore.git) to bring in consistency of rules across applications. This includes:
  - **Cache Manager** - Framework to control what goes in the cache and to leverage the global cache of the IIB.
  - Tranformation Utils and interfaces - Control, manage and helper classes for the Transformation Business Logic
  - **IIB Java Compute Framework** - Common Java Compute fraemwork to simplify developer code and bring consistency across message flows. Sample Java Computes with and without Cache are included in the Application project - help you extend and implement your message flows. The Java computes are expected merely gather the data from input message, cache etc and pass on to the transformation framework.
