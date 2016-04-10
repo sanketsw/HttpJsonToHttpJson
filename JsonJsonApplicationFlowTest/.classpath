@@ -32,8 +32,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="com.ibm.etools.mft.uri.classpath.MBProjectReference"/>
-	<classpathentry kind="output" path="target/classes"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.broker.config.appdev.doc_10.0.400.v20160310-1307"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.broker.config.appdev_10.0.400.v20160310-1307"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/brokerutil.jar"/>
@@ -43,12 +41,12 @@
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/javacompute.jar"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/jetty-io.jar"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/jetty-util.jar"/>
-	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/jplugin2.jar"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/MQPolicyBeans.jar"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/MQTTPolicyBeans.jar"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/websocket-api.jar"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/websocket-client.jar"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/websocket-common.jar"/>
-	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/classes/IntegrationAPI.jar"/>
 	<classpathentry kind="lib" path="/root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.config_10.0.400/classes/jms.jar"/>
+	<classpathentry kind="con" path="com.ibm.etools.mft.uri.classpath.MBProjectReference"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

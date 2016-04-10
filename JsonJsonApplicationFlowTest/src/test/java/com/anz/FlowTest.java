@@ -72,7 +72,7 @@ public class FlowTest extends TestCase {
 		testNodeList.add(httprequestNode);
 		
 		TestNode finalNode = new TestNode("ZOSRest01#FCMComposite_1_6");
-		finalNode.addxPathAssertion("/message/JSON/Data/imeplementation[.='IIB REST API']");
+		finalNode.addxPathAssertion("/message/JSON/Data/imeplementation[.='IIB REST API implementation']");
 		finalNode.addxPathAssertion("/message/JSON/Data/result[.='103']");
 		testNodeList.add(finalNode);	
 		
