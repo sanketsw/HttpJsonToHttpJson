@@ -3,7 +3,7 @@
     nsURI="ZOSRest01.msgflow" nsPrefix="ZOSRest01.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
-    <eStructuralFeatures xmi:type="ecore:EAttriute" xmi:id="Property.REST_URL" name="REST_URL" defaultValueLiteral="http://api-springboot.mybluemix.net/operate/addJSON">
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.REST_URL" name="REST_URL" defaultValueLiteral="http://api-springboot.mybluemix.net/operate/addJSON">
       <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
     <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.HTTP_METHOD" name="HTTP_METHOD" defaultValueLiteral="POST">
@@ -48,3 +48,5 @@
     <stickyBoard/>
   </eClassifiers>
 </ecore:EPackage>
+
+
