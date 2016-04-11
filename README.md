@@ -23,9 +23,31 @@ This is JSON to JSON conversion REST API implemented in IIB 10.0.0.4 to demonstr
  - We chose to create a self contained bar file that can run in its own classloader. Gives advantages of Java Isolation of IIB 10
  - The Java projects such as Business Logic and FLow Test frameworks are maven projects that integrate well with DevOps and produce jar files that can be tested in an automated manner before deploy.
 
+### Before using the IIB Application Framework
+You need to create a one time setup of your toolkit so that all the IIB dependecies are resolved locally for your local development. If you are using a preconfigured VM, this is already done for you.
+
+** Register IIB plugins into maven repository **
+```
+yum install maven
+
+cd /root/IIB/iib-10.0.0.4/tools/plugins/com.ibm.etools.mft.jcn_10.0.400.v20160310-1307
+
+mvn install:install-file -Dfile=jplugin2.jar -DgroupId=com.ibm.iib -DartifactId=jplugin2 -Dversion=1.0.0 -Dpackaging=jar
+
+mvn install:install-file -Dfile=javacompute.jar -DgroupId=com.ibm.iib -DartifactId=javacompute -Dversion=1.0.0 -Dpackaging=jar
+
+cd /root/IIB/iib-10.0.0.4/common/classes
+
+mvn install:install-file -Dfile=IntegrationAPI.jar -DgroupId=com.ibm.iib -DartifactId=IntegrationAPI -Dversion=1.0.0 -Dpackaging=jar
+```
+** Build the ProcessingCOre Common framework **
+1. In your git repositories view select -> **clone a git repository** -> Enter https://github.com/sanketsw/ProcessingCore.git and credentials -> After import is finished, right click on the repository and **import projects** -> import as exisitng projects -> select all projects.
+
+2. run maven clean package install on **ProcessingCore** project (right click pom.xml -> run as maven build-> enter goal as `clean package install`) so that your IIB Application's maven build can find it in the local maven repository
 
 
 ### How to import the project in IIB
+
 1. In IIB toolkit, goto Window -> open perspective -> Git. If you dont see Git Repositories view, then goto Window -> Show view -> Git Repositories
 
 2. In your git repositories view select -> **clone a git repository** -> Enter https://github.com/sanketsw/JsonJsonApplication.git and credentials -> After import is finished, right click on the repository and **import projects** -> import as exisitng projects -> select all projects.
