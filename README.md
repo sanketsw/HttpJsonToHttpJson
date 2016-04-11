@@ -26,7 +26,7 @@ This is JSON to JSON conversion REST API implemented in IIB 10.0.0.4 to demonstr
 ### Before using the IIB Application Framework
 You need to create a one time setup of your toolkit so that all the IIB dependecies are resolved locally for your local development. If you are using a preconfigured VM, this is already done for you.
 
-** Register IIB plugins into maven repository **
+**Register IIB plugins into maven repository**
 ```
 yum install maven
 
@@ -40,7 +40,8 @@ cd /root/IIB/iib-10.0.0.4/common/classes
 
 mvn install:install-file -Dfile=IntegrationAPI.jar -DgroupId=com.ibm.iib -DartifactId=IntegrationAPI -Dversion=1.0.0 -Dpackaging=jar
 ```
-** Build the ProcessingCOre Common framework **
+**Build the ProcessingCOre Common framework**
+
 1. In your git repositories view select -> **clone a git repository** -> Enter https://github.com/sanketsw/ProcessingCore.git and credentials -> After import is finished, right click on the repository and **import projects** -> import as exisitng projects -> select all projects.
 
 2. run maven clean package install on **ProcessingCore** project (right click pom.xml -> run as maven build-> enter goal as `clean package install`) so that your IIB Application's maven build can find it in the local maven repository
@@ -52,11 +53,7 @@ mvn install:install-file -Dfile=IntegrationAPI.jar -DgroupId=com.ibm.iib -Dartif
 
 2. In your git repositories view select -> **clone a git repository** -> Enter https://github.com/sanketsw/JsonJsonApplication.git and credentials -> After import is finished, right click on the repository and **import projects** -> import as exisitng projects -> select all projects.
 
-3. Do the above step for the ProcessingCore repository as well. https://github.com/sanketsw/ProcessingCore.git
- 
-4. you may have to run maven clean package install on **ProcessingCore** project (right click pom.xml -> run as maven build-> enter goal as `clean package install`)
-
-5. Right click and refresh the projects. If dependencies in Java project are not resolved, goto Project -> clean. Deploy the IIB application to default node.
+3. Right click and refresh the projects. If dependencies in Java project are not resolved, goto Project -> clean. Deploy the IIB application to default node.
  
 ### How to execute the API
 
