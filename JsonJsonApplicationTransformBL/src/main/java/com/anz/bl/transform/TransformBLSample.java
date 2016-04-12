@@ -4,7 +4,7 @@
 package com.anz.bl.transform;
 
 import com.anz.bl.transform.pojo.NumbersInput;
-import com.anz.common.transform.ITransform;
+import com.anz.common.transform.IJsonJsonTransformer;
 import com.anz.common.transform.TransformUtils;
 
 
@@ -12,16 +12,14 @@ import com.anz.common.transform.TransformUtils;
  * @author sanketsw
  * 
  */
-public class TransformBLSample implements ITransform {
+public class TransformBLSample implements IJsonJsonTransformer {
 
-	/**
-	 * Transform the input request data here
-	 * 
-	 * @param jsonInput
-	 * @return JSON String after conversion
+	
+	/* (non-Javadoc)
+	 * @see com.anz.common.transform.IJsonJsonTransformer#execute(java.lang.String)
 	 */
-	public String transformRequestData(String jsonInput) {
-		NumbersInput json = (NumbersInput) TransformUtils.fromJSON(jsonInput,
+	public String execute(String inputJson) throws Exception {
+		NumbersInput json = (NumbersInput) TransformUtils.fromJSON(inputJson,
 				NumbersInput.class);
 		json.setLeft(json.getLeft() + 100);
 		String out = TransformUtils.toJSON(json);

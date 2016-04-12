@@ -31,12 +31,12 @@ public class TransformBLSampleTest extends TestCase {
 	}
 	
 	@Test
-	public void testTransformRequestData() throws JSONException {
+	public void testTransformRequestData() throws Exception {
 		String in  = "{  \"left\": 0,  \"right\": 0 }";
 		String expected = "{  \"right\": 0, \"left\": 100 }";
 		String notExpected = "{  \"left\": 0,  \"right\": 0 }";
 		
-		String out =  new TransformBLSample().transformRequestData(in);
+		String out =  new TransformBLSample().execute(in);
 		
 		JSONObject json = new JSONObject(out);
 		JSONAssert.assertEquals(expected, json, false);

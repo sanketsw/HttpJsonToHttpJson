@@ -39,7 +39,7 @@ public class TransformBLSampleWithCacheTest extends TestCase {
 		String notExpected = "{\"imeplementation\":\"Java_SpringBoot\"}";
 		CachePojoSample op = new CachePojoSample(CachePojoSample.ADD, "IIB REST API implementation");
 		
-		String out =  new TransformBLSampleWithCache().transformResponseData(in, op);
+		String out =  new TransformBLSampleWithCache().execute(in);
 		
 		JSONObject json = new JSONObject(out);
 		JSONAssert.assertEquals(expected, json, false);
@@ -53,7 +53,7 @@ public class TransformBLSampleWithCacheTest extends TestCase {
 		
 		boolean exceptionThrown =  false;
 		try {
-			String out = new TransformBLSampleWithCache().transformResponseData(in, op);
+			String out = new TransformBLSampleWithCache().execute(in);
 		} catch (Exception e) {
 			exceptionThrown = true;
 		}
@@ -66,7 +66,7 @@ public class TransformBLSampleWithCacheTest extends TestCase {
 		String expected = "{\"operation\":\"Add\"}";
 		
 		CachePojoSample op = new CachePojoSample(CachePojoSample.ADD, "IIB REST API implementation");		
-		String out =  new TransformBLSampleWithCache().transformResponseData(in, op);		
+		String out =  new TransformBLSampleWithCache().execute(in);		
 		JSONObject json = new JSONObject(out);
 		JSONAssert.assertEquals(expected, json, false);
 	}

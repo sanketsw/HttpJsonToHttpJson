@@ -5,35 +5,33 @@ package com.anz.bl.transform;
 
 import com.anz.bl.transform.pojo.Result;
 import com.anz.common.cache.bean.CachePojoSample;
-import com.anz.common.cache.impl.CacheableObject;
-import com.anz.common.transform.ITransform;
+import com.anz.common.cache.data.StaticCacheManager;
+import com.anz.common.cache.impl.AbstractCachePojo;
+import com.anz.common.transform.IJsonJsonTransformer;
+import com.anz.common.transform.ITransformer;
 import com.anz.common.transform.TransformUtils;
-
 
 /**
  * @author sanketsw
- *
+ * 
  */
-public class TransformBLSampleWithCache implements ITransform {
-	
+public class TransformBLSampleWithCache implements IJsonJsonTransformer {
 
-	/**
-	 * @param jsonData
-	 *            JSON String
-	 * @param cachedData
-	 *            cached Data
-	 * @return JSON string
-	 * @throws Exception
-	 *             is any
+
+	/* (non-Javadoc)
+	 * @see com.anz.common.transform.IJsonJsonTransformer#execute(java.lang.String)
 	 */
-	public String transformResponseData(String jsonData,
-			CacheableObject cachedData) throws Exception {
+	public String execute(String inputJson) throws Exception {
 
-		Result json = (Result) TransformUtils.fromJSON(jsonData, Result.class);
+		Result json = (Result) TransformUtils.fromJSON(inputJson, Result.class);
 		if (json.getResult() == null)
 			throw new Exception("invalid response data detected");
 
-		CachePojoSample op = (CachePojoSample) cachedData;
+		// Read data from Cache
+		String objectKey = CachePojoSample.ADD;
+		CachePojoSample op = (CachePojoSample) new StaticCacheManager()
+				.lookupCache("DefaultMap", objectKey,
+						CachePojoSample.class, true);
 		json.setOperation(op.getOperation());
 		json.setImeplementation(op.getImeplementation());
 
