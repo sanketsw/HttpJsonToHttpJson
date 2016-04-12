@@ -1,4 +1,4 @@
-# JsonJsonApplication
+# HttpJsonToHttpJson
 
 This is JSON to JSON conversion REST API implemented in IIB 10.0.0.4 to demonstrate a common framework. This framework is desinged with careful consideration of 12 factors for creating cloud ready next generation architecture and also will perfectly integrate with DevOps processes in order to increase development and deployment efficiency. This framework includes:
 <<<<<<< HEAD
