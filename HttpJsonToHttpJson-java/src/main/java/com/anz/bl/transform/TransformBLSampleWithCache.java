@@ -3,11 +3,13 @@
  */
 package com.anz.bl.transform;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.anz.bl.transform.pojo.Result;
-import com.anz.common.cache.bean.CachePojoSample;
-import com.anz.common.cache.data.StaticCacheManager;
-import com.anz.common.cache.impl.AbstractCachePojo;
-import com.anz.common.transform.IJsonJsonTransformer;
+import com.anz.common.cache.impl.CacheHandlerFactory;
+import com.anz.common.cache.impl.InMemoryCacheManager;
+import com.anz.common.cache.pojo.CachePojoSample;
 import com.anz.common.transform.ITransformer;
 import com.anz.common.transform.TransformUtils;
 
@@ -15,8 +17,9 @@ import com.anz.common.transform.TransformUtils;
  * @author sanketsw
  * 
  */
-public class TransformBLSampleWithCache implements IJsonJsonTransformer {
+public class TransformBLSampleWithCache implements ITransformer<String, String> {
 
+	private static final Logger logger = LogManager.getLogger();
 
 	/* (non-Javadoc)
 	 * @see com.anz.common.transform.IJsonJsonTransformer#execute(java.lang.String)
@@ -29,9 +32,9 @@ public class TransformBLSampleWithCache implements IJsonJsonTransformer {
 
 		// Read data from Cache
 		String objectKey = CachePojoSample.ADD;
-		CachePojoSample op = (CachePojoSample) new StaticCacheManager()
-				.lookupCache("DefaultMap", objectKey,
-						CachePojoSample.class, true);
+		logger.info(InMemoryCacheManager.URI);
+		CachePojoSample op = CacheHandlerFactory.getInstance().lookupIIBCache("DefaultMap", objectKey,
+						CachePojoSample.class);
 		json.setOperation(op.getOperation());
 		json.setImeplementation(op.getImeplementation());
 

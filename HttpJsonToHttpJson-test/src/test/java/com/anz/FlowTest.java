@@ -6,6 +6,7 @@ package com.anz;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import junit.framework.TestCase;
 
@@ -14,6 +15,8 @@ import org.junit.Test;
 
 import com.anz.util.TestNode;
 import com.anz.util.TestUtil;
+import com.ibm.broker.config.proxy.Checkpoint;
+import com.ibm.broker.config.proxy.RecordedTestData;
 
 /**
  * @author root
@@ -81,5 +84,6 @@ public class FlowTest extends TestCase {
 		new TestUtil().testOnServerUsingIntegrationAPI(integrationNodeName, integrationServerName, inputMessageFile, applicationName, flowName,  injectNodeUUID, testNodeList);
 		
 	}
+
 
 }

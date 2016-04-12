@@ -2,7 +2,6 @@ package com.anz.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -15,7 +14,6 @@ import javax.xml.xpath.XPathFactory;
 import junit.framework.TestCase;
 
 import org.apache.commons.io.IOUtils;
-import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -25,8 +23,6 @@ import com.ibm.broker.config.common.XMLHelper;
 import com.ibm.broker.config.proxy.AttributeConstants;
 import com.ibm.broker.config.proxy.BrokerProxy;
 import com.ibm.broker.config.proxy.Checkpoint;
-import com.ibm.broker.config.proxy.ConfigManagerProxyLoggedException;
-import com.ibm.broker.config.proxy.ConfigManagerProxyPropertyNotInitializedException;
 import com.ibm.broker.config.proxy.ExecutionGroupProxy;
 import com.ibm.broker.config.proxy.RecordedTestData;
 

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
-import com.anz.common.cache.bean.CachePojoSample;
+import com.anz.common.cache.pojo.CachePojoSample;
 
 /**
  * @author sanketsw

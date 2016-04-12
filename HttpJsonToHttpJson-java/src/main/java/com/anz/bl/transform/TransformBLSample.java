@@ -4,7 +4,7 @@
 package com.anz.bl.transform;
 
 import com.anz.bl.transform.pojo.NumbersInput;
-import com.anz.common.transform.IJsonJsonTransformer;
+import com.anz.common.transform.ITransformer;
 import com.anz.common.transform.TransformUtils;
 
 
@@ -12,7 +12,7 @@ import com.anz.common.transform.TransformUtils;
  * @author sanketsw
  * 
  */
-public class TransformBLSample implements IJsonJsonTransformer {
+public class TransformBLSample implements ITransformer<String, String> {
 
 	
 	/* (non-Javadoc)
