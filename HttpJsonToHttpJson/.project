@@ -3,13 +3,8 @@
 	<name>HttpJsonToHttpJson</name>
 	<comment></comment>
 	<projects>
-		<project>JsonJsonApplicationTransformBL</project>
 		<project>HttpJsonToHttpJson-java</project>
-		<project>sharedLib2</project>
 		<project>HttpJsonToHttpJson-test</project>
-		<project>JsonJsonApplicationFlowTest</project>
-		<project>JsonJsonApplicationJava</project>
-		<project>HttpJsonToHttpJsonJava</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
