@@ -17,5 +17,6 @@
 		<Logger name="au.com.anz.iib.apps.pojo" level="info" additivity="false">
 			<AppenderRef ref="Console" />
 		</Logger>
+		
 	</Loggers>
 </Configuration>
