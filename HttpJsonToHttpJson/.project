@@ -3,8 +3,8 @@
 	<name>HttpJsonToHttpJson</name>
 	<comment></comment>
 	<projects>
-		<project>HttpJsonToHttpJson-java</project>
-		<project>HttpJsonToHttpJson-test</project>
+		<project>HttpJsonToHttpJson-Java</project>
+		<project>HttpJsonToHttpJson-TestJava</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
