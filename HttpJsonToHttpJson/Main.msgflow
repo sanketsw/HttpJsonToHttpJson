@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmJavaCompute.msgnode="ComIbmJavaCompute.msgnode" xmlns:ComIbmMSLMapping.msgnode="ComIbmMSLMapping.msgnode" xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode" xmlns:ComIbmWSReply.msgnode="ComIbmWSReply.msgnode" xmlns:ComIbmWSRequest.msgnode="ComIbmWSRequest.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:mbmonitor="http://www.ibm.com/wbi/2008/eflow_mbmonitor"
-    xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="Main.msgflow" nsPrefix="Main.msgflow">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmJavaCompute.msgnode="ComIbmJavaCompute.msgnode" xmlns:ComIbmMSLMapping.msgnode="ComIbmMSLMapping.msgnode" xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode" xmlns:ComIbmWSReply.msgnode="ComIbmWSReply.msgnode" xmlns:ComIbmWSRequest.msgnode="ComIbmWSRequest.msgnode" xmlns:ErrorHandler.subflow="ErrorHandler.subflow" xmlns:FailureHandler.subflow="FailureHandler.subflow" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:mbmonitor="http://www.ibm.com/wbi/2008/eflow_mbmonitor" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="Main.msgflow" nsPrefix="Main.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
     <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.REST_URL" name="REST_URL" defaultValueLiteral="http://api-springboot.mybluemix.net/operate/addJSON">
@@ -18,7 +18,7 @@
         <monitorEvents eventSourceDescription="Transaction start" eventSourceName="HTTP Input.transaction.Start" eventIdentity="HTTP Input.TransactionStart">
           <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
             <applicationData dataLocation="$LocalEnvironment/HTTP" isXPath="true" complexData="true"/>
-            <globalTransactionCorrelator dataLocation="$Root/BLOB" eventCorrelation="dataLocation"/>
+            <globalTransactionCorrelator dataLocation="$LocalEnvironment/HTTP/Input/RequestLine/RequestURI" eventCorrelation="dataLocation"/>
             <parentTransactionCorrelator/>
             <localTransactionCorrelator/>
             <bitStreamData encoding="base64Binary"/>
@@ -27,7 +27,7 @@
           </eventXMLDoc>
         </monitorEvents>
       </nodes>
-      <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="536,20" URLSpecifier="http://api-springboot.mybluemix.net/hello" httpVersion="1.1" protocol="TLS" messageDomainProperty="BLOB">
+      <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="567,20" URLSpecifier="http://api-springboot.mybluemix.net/hello" httpVersion="1.1" protocol="TLS" messageDomainProperty="BLOB">
         <translation xmi:type="utility:ConstantString" string="HTTP Request"/>
         <monitorEvents eventSourceDescription="Out terminal" eventSourceName="HTTP Request.terminal.out" eventIdentity="HTTP Request.OutTerminal">
           <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
@@ -41,7 +41,7 @@
           </eventXMLDoc>
         </monitorEvents>
       </nodes>
-      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="1050,20">
+      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="1081,194">
         <translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
         <monitorEvents eventSourceDescription="Out terminal" eventSourceName="HTTP Reply.terminal.out" eventIdentity="HTTP Reply.OutTerminal">
           <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
@@ -55,10 +55,10 @@
           </eventXMLDoc>
         </monitorEvents>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="10,97" mappingExpression="msl://{default}#JSON_Mapping">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="10,271" mappingExpression="msl://{default}#JSON_Mapping">
         <translation xmi:type="utility:ConstantString" string="Mapping"/>
       </nodes>
-      <nodes xmi:type="ComIbmJavaCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="227,20" javaClass="com.anz.common.compute.impl.CommonJsonJsonTransformCompute">
+      <nodes xmi:type="ComIbmJavaCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="258,20" javaClass="com.anz.common.compute.impl.CommonJsonJsonTransformCompute">
         <translation xmi:type="utility:ConstantString" string="com.anz.bl.transform.TransformBLSample"/>
         <monitorEvents eventSourceDescription="Out terminal" eventSourceName="com.anz.bl.transform.TransformBLSample.terminal.out" eventIdentity="com.anz.bl.transform.TransformBLSample.OutTerminal">
           <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
@@ -72,7 +72,7 @@
           </eventXMLDoc>
         </monitorEvents>
       </nodes>
-      <nodes xmi:type="ComIbmJavaCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="670,20" javaClass="com.anz.common.compute.impl.CommonJsonJsonTransformCompute">
+      <nodes xmi:type="ComIbmJavaCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="701,20" javaClass="com.anz.common.compute.impl.CommonJsonJsonTransformCompute">
         <translation xmi:type="utility:ConstantString" string="com.anz.bl.transform.TransformBLSampleWithCache"/>
         <monitorEvents eventSourceDescription="Out terminal" eventSourceName="com.anz.bl.transform.TransformBLSampleWithCache.terminal.out" eventIdentity="com.anz.bl.transform.TransformBLSampleWithCache.OutTerminal">
           <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
@@ -86,7 +86,7 @@
           </eventXMLDoc>
         </monitorEvents>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="124,20" mappingExpression="msl://{default}#BLOB_Mapping">
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="139,20" mappingExpression="msl://{default}#BLOB_Mapping">
         <translation xmi:type="utility:ConstantString" string="Mapping1"/>
         <monitorEvents eventSourceDescription="Out terminal" eventSourceName="Mapping1.terminal.out" eventIdentity="Mapping1.OutTerminal">
           <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
@@ -100,11 +100,21 @@
           </eventXMLDoc>
         </monitorEvents>
       </nodes>
+      <nodes xmi:type="ErrorHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_7" location="830,107">
+        <translation xmi:type="utility:ConstantString" string="ErrorHandler"/>
+      </nodes>
+      <nodes xmi:type="FailureHandler.subflow:FCMComposite_1" xmi:id="FCMComposite_1_9" location="124,194">
+        <translation xmi:type="utility:ConstantString" string="FailureHandler"/>
+      </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_11" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.error" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_9" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_9" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.catch" targetTerminalName="InTerminal.Input"/>
     </composition>
     <propertyOrganizer>
       <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.REST_URL">
