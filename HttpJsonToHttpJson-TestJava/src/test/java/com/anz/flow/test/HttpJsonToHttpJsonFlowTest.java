@@ -25,7 +25,7 @@ import org.xml.sax.SAXException;
 
 import com.anz.bl.transform.pojo.NumbersInput;
 import com.anz.bl.transform.pojo.Result;
-import com.anz.common.cache.pojo.CachePojoSample;
+import com.anz.common.dataaccess.models.iib.Operation;
 import com.anz.common.test.FlowTest;
 import com.anz.common.transform.TransformUtils;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -164,7 +164,7 @@ public class HttpJsonToHttpJsonFlowTest extends FlowTest {
 		Result out = gson.fromJson(json, Result.class);
 		
 		assertEquals("IIB REST API implementation", out.getImeplementation());
-		assertEquals(CachePojoSample.ADD, out.getOperation());
+		assertEquals(Operation.ADD, out.getOperation());
 		assertEquals("109", out.getResult());
 		
 	}

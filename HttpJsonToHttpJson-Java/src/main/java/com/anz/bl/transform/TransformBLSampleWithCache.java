@@ -7,12 +7,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.anz.bl.transform.pojo.Result;
-import com.anz.common.cache.domain.CachePojoSampleDomain;
-import com.anz.common.cache.pojo.CachePojoSample;
-import com.anz.common.dataaccess.daos.ILookupDao;
-import com.anz.common.dataaccess.models.iib.Lookup;
-import com.anz.common.ioc.IIoCFactory;
-import com.anz.common.ioc.spring.AnzSpringIoCFactory;
+import com.anz.common.dataaccess.models.iib.Operation;
+import com.anz.common.domain.OperationDomain;
 import com.anz.common.transform.ITransformer;
 import com.anz.common.transform.TransformUtils;
 
@@ -40,13 +36,12 @@ public class TransformBLSampleWithCache implements ITransformer<String, String> 
 				throw new Exception("invalid response data detected");
 
 			// Read data from Cache
-			String objectKey = CachePojoSample.ADD;
-			CachePojoSample op = CachePojoSampleDomain.getInstance()
-					.getOperation(objectKey);
-			logger.info("value set from cache= {}", op.toJSON());
+			String objectKey = Operation.ADD;
+			Operation op = OperationDomain.getInstance().getOperation(objectKey);
+			logger.info("value set from cache/DB= {}", TransformUtils.toJSON(op));
 			json.setOperation(op.getOperation());
 			json.setImeplementation(op.getImeplementation());			
-			json.setComment("read from jdbc type4 connection and then cached:" + op.getIsoCode());
+			json.setComment("read from jdbc type4 connection and cached:" + op);
 
 			out = TransformUtils.toJSON(json);
 		} catch (Exception e) {

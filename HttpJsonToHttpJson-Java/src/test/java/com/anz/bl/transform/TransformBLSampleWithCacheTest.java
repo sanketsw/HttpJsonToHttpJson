@@ -3,13 +3,13 @@
  */
 package com.anz.bl.transform;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.json.JSONObject;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
-import com.anz.common.cache.pojo.CachePojoSample;
+import com.anz.common.dataaccess.models.iib.Operation;
 
 /**
  * @author sanketsw
@@ -23,7 +23,9 @@ public class TransformBLSampleWithCacheTest {
 		String in  = "{\"imeplementation\":\"Java_SpringBoot\",\"result\":\"35\"}";
 		String expected = "{\"imeplementation\":\"IIB REST API implementation\"}";
 		String notExpected = "{\"imeplementation\":\"Java_SpringBoot\"}";
-		CachePojoSample op = new CachePojoSample(CachePojoSample.ADD, "IIB REST API implementation");
+		Operation op = new Operation();	
+		op.setOperation(Operation.ADD);
+		op.setImeplementation("IIB REST API implementation");
 		
 		String out =  new TransformBLSampleWithCache().execute(in);
 		
@@ -35,7 +37,9 @@ public class TransformBLSampleWithCacheTest {
 	@Test
 	public void testInvalidResponseDataWithoutResultField() {
 		String in  = "{\"imeplementation\":\"Java_SpringBoot\"}";
-		CachePojoSample op = new CachePojoSample(CachePojoSample.ADD, "IIB REST API implementation");
+		Operation op = new Operation();	
+		op.setOperation(Operation.ADD);
+		op.setImeplementation("IIB REST API implementation");
 		
 		boolean exceptionThrown =  false;
 		try {
@@ -52,7 +56,9 @@ public class TransformBLSampleWithCacheTest {
 		String in  = "{\"imeplementation\":\"Java_SpringBoot\",\"result\":\"35\"}";
 		String expected = "{\"operation\":\"Add\"}";
 		
-		CachePojoSample op = new CachePojoSample(CachePojoSample.ADD, "IIB REST API implementation");		
+		Operation op = new Operation();	
+		op.setOperation(Operation.ADD);
+		op.setImeplementation("IIB REST API implementation");
 		String out = null;
 		try {
 			out =  new TransformBLSampleWithCache().execute(in);		
