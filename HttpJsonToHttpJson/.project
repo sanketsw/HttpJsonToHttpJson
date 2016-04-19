@@ -3,6 +3,7 @@
 	<name>HttpJsonToHttpJson</name>
 	<comment></comment>
 	<projects>
+		<project>anz-iib-commons</project>
 		<project>HttpJsonToHttpJson-Java</project>
 		<project>HttpJsonToHttpJson-TestJava</project>
 	</projects>

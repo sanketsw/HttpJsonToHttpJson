@@ -61,13 +61,13 @@ public class FailureHandler_JavaCompute extends MbJavaComputeNode {
 			code.setDescr(descr)
 			code.setSeverity(severity);
 			code.setStatus(status);*/
-			//ComputeUtils.replaceJsonDataToBlob(outMessage, TransformUtils.toJSON(code));
+			ComputeUtils.replaceJsonDataToBlob(outMessage, TransformUtils.toJSON(sb.toString()));
 			
 			// TODO Chamun Copy the HTTP response header entirely
 			
 			//Create the Broker Blob Parser element
-			MbElement outParser = outRoot.createElementAsLastChild(MbBLOB.PARSER_NAME);
-			outParser.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "BLOB", sb.toString().getBytes());
+			//MbElement outParser = outRoot.createElementAsLastChild(MbBLOB.PARSER_NAME);
+			//outParser.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "BLOB", sb.toString().getBytes());
 			logger.info("FailureHandler_JavaCompute error message"+sb.toString());
 
 			// End of user code
