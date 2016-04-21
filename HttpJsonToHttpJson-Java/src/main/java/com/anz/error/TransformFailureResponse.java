@@ -25,10 +25,10 @@ public class TransformFailureResponse implements
 	private static final Logger logger = LogManager.getLogger();
 
 	@Override
-	public String execute(MbMessageAssembly inAssembly) throws Exception {
+	public String execute(MbMessageAssembly outAssembly) throws Exception {
 		String out = null;
 		
-		MbElement exception = inAssembly.getExceptionList().getRootElement().getFirstElementByPath("RecoverableException");
+		MbElement exception = outAssembly.getExceptionList().getRootElement().getFirstElementByPath("RecoverableException");
 		String exceptionText = "Error";
 		while (exception != null) {
 			MbElement insert = exception.getFirstElementByPath("Insert");
@@ -41,7 +41,7 @@ public class TransformFailureResponse implements
 			}
 			exception = exception.getFirstElementByPath("RecoverableException");
 		}
-		logger.info(exceptionText);
+		logger.error(exceptionText);
 
 		// Log the error
 		//logger.error(inputString);
@@ -54,6 +54,7 @@ public class TransformFailureResponse implements
 			//out = inputString;
 			logger.info("passing the error over as it is {} ", out);
 		} else {
+			errorCode.setDescr(exceptionText);
 			out = TransformUtils.toJSON(errorCode);
 			logger.info("got the error code object from static data: {}", out);
 		}

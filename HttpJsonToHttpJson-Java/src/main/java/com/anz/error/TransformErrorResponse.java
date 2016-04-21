@@ -24,10 +24,10 @@ public class TransformErrorResponse implements
 	private static final Logger logger = LogManager.getLogger();
 
 	@Override
-	public String execute(MbMessageAssembly inAssembly) throws Exception {
+	public String execute(MbMessageAssembly outAssembly) throws Exception {
 		String out = null;
-		MbMessage inMessage = inAssembly.getMessage();
-		String inputString = ComputeUtils.getJsonDataFromBlob(inMessage);
+		MbMessage inMessage = outAssembly.getMessage();
+		String inputString = ComputeUtils.getStringFromBlob(inMessage);
 
 		// Log the error
 		logger.error(inputString);
@@ -37,15 +37,10 @@ public class TransformErrorResponse implements
 
 		// If error code cannot be mapped, then return the original error
 		if (errorCode == null) {
-			StringBuilder sb = new StringBuilder();
-			if (inputString.length() > 0) {
-				sb.append("<h1>");
-				sb.append(inputString);
-				sb.append("</h1>");
-				out = sb.toString();
-			}
+			// out = inputString;
 			logger.info("passing the error over as it is {} ", out);
 		} else {
+			errorCode.setDescr(inputString);
 			out = TransformUtils.toJSON(errorCode);
 			logger.info("got the error code object from static data: {}", out);
 		}
