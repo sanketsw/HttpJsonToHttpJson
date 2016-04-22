@@ -5,10 +5,13 @@ package com.anz.bl.transform;
 
 import static org.junit.Assert.assertTrue;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
+import com.anz.common.compute.ComputeInfo;
 import com.anz.common.dataaccess.models.iib.Operation;
 
 /**
@@ -16,6 +19,8 @@ import com.anz.common.dataaccess.models.iib.Operation;
  *
  */
 public class TransformBLSampleWithCacheTest {
+	
+	private static Logger logger = LogManager.getLogger();
 
 	
 	//@Test
@@ -27,7 +32,7 @@ public class TransformBLSampleWithCacheTest {
 		op.setOperation(Operation.ADD);
 		op.setImeplementation("IIB REST API implementation");
 		
-		String out =  new TransformBLSampleWithCache().execute(in);
+		String out =  new TransformBLSampleWithCache().execute(in, logger, new ComputeInfo());
 		
 		JSONObject json = new JSONObject(out);
 		JSONAssert.assertEquals(expected, json, false);
@@ -43,7 +48,7 @@ public class TransformBLSampleWithCacheTest {
 		
 		boolean exceptionThrown =  false;
 		try {
-			String out = new TransformBLSampleWithCache().execute(in);
+			String out = new TransformBLSampleWithCache().execute(in, logger, new ComputeInfo());
 		} catch (Exception e) {
 			exceptionThrown = true;
 		}
@@ -61,7 +66,7 @@ public class TransformBLSampleWithCacheTest {
 		op.setImeplementation("IIB REST API implementation");
 		String out = null;
 		try {
-			out =  new TransformBLSampleWithCache().execute(in);		
+			out =  new TransformBLSampleWithCache().execute(in, logger, new ComputeInfo());		
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

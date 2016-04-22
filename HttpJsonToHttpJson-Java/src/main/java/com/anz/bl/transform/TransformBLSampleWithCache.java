@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.anz.bl.transform.pojo.Result;
+import com.anz.common.compute.ComputeInfo;
 import com.anz.common.dataaccess.models.iib.Operation;
 import com.anz.common.domain.OperationDomain;
 import com.anz.common.transform.ITransformer;
@@ -26,7 +27,7 @@ public class TransformBLSampleWithCache implements ITransformer<String, String> 
 	 * @see
 	 * com.anz.common.transform.IJsonJsonTransformer#execute(java.lang.String)
 	 */
-	public String execute(String inputJson) throws Exception {
+	public String execute(String inputJson, Logger logger, ComputeInfo metadata) throws Exception {
 		String out = inputJson;
 		try {
 			Result json = (Result) TransformUtils.fromJSON(inputJson,

@@ -3,9 +3,9 @@
  */
 package com.anz.error;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.anz.common.compute.ComputeInfo;
 import com.anz.common.compute.impl.ComputeUtils;
 import com.anz.common.dataaccess.models.iib.IFXCode;
 import com.anz.common.domain.IFXCodeDomain;
@@ -21,10 +21,10 @@ import com.ibm.broker.plugin.MbMessageAssembly;
 public class TransformErrorResponse implements
 		ITransformer<MbMessageAssembly, String> {
 
-	private static final Logger logger = LogManager.getLogger();
+	
 
 	@Override
-	public String execute(MbMessageAssembly outAssembly) throws Exception {
+	public String execute(MbMessageAssembly outAssembly, Logger logger, ComputeInfo metadata) throws Exception {
 		String out = null;
 		MbMessage inMessage = outAssembly.getMessage();
 		String inputString = ComputeUtils.getStringFromBlob(inMessage);

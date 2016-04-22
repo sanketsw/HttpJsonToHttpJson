@@ -9,13 +9,7 @@
     <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.HTTP_METHOD" name="HTTP_METHOD" lowerBound="1" defaultValueLiteral="POST">
       <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.PROJECT_NAME" name="PROJECT_NAME" lowerBound="1" defaultValueLiteral="Project01">
-      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.PROJECT_NAME-Java" name="PROJECT_NAME-Java" lowerBound="1" defaultValueLiteral="Project01-Java">
-      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.PROJECT_NAME-TestJava" name="PROJECT_NAME-TestJava" lowerBound="1" defaultValueLiteral="Project01-TestJava">
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.LOGGER_NAME" name="LOGGER_NAME" defaultValueLiteral="default">
       <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
     <translation xmi:type="utility:TranslatableString" key="Main" bundleName="Main" pluginId="HttpJsonToHttpJson"/>
@@ -152,14 +146,8 @@
         <propertyName xmi:type="utility:TranslatableString" key="Property.REST_URL" bundleName="Main" pluginId="HttpJsonToHttpJson"/>
         <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.HTTP_METHOD">
           <propertyName xmi:type="utility:TranslatableString" key="Property.HTTP_METHOD" bundleName="Main" pluginId="HttpJsonToHttpJson"/>
-          <propertyDescriptor groupName="Group.ProjectParams" configurable="true" userDefined="true" describedAttribute="Property.PROJECT_NAME">
-            <propertyName xmi:type="utility:TranslatableString" key="Property.PROJECT_NAME" bundleName="Main" pluginId="HttpJsonToHttpJson"/>
-            <propertyDescriptor groupName="Group.ProjectParams" configurable="true" userDefined="true" describedAttribute="Property.PROJECT_NAME-Java">
-              <propertyName xmi:type="utility:TranslatableString" key="Property.PROJECT_NAME-Java" bundleName="Main" pluginId="HttpJsonToHttpJson"/>
-              <propertyDescriptor groupName="Group.ProjectParams" configurable="true" userDefined="true" describedAttribute="Property.PROJECT_NAME-TestJava">
-                <propertyName xmi:type="utility:TranslatableString" key="Property.PROJECT_NAME-TestJava" bundleName="Main" pluginId="HttpJsonToHttpJson"/>
-              </propertyDescriptor>
-            </propertyDescriptor>
+          <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.LOGGER_NAME">
+            <propertyName xmi:type="utility:TranslatableString" key="Property.LOGGER_NAME" bundleName="Main" pluginId="HttpJsonToHttpJson"/>
           </propertyDescriptor>
         </propertyDescriptor>
       </propertyDescriptor>
@@ -172,9 +160,6 @@
       <AnnotationTarget targetObjects="//FCMComposite_1">
         <PatternAnnotation xmi:type="patternAnnotation:PropertyPatternAnnotation" aliasId="UserDefinedProperty.HTTP_METHOD" targetObject="//FCMComposite_1" targetPropertyId="HTTP_METHOD"/>
         <PatternAnnotation xmi:type="patternAnnotation:PropertyPatternAnnotation" aliasId="UserDefinedProperty.REST_URL" targetObject="//FCMComposite_1" targetPropertyId="REST_URL"/>
-        <PatternAnnotation xmi:type="patternAnnotation:PropertyPatternAnnotation" aliasId="UserDefinedProperty.PROJECT_NAME" targetObject="//FCMComposite_1" targetPropertyId="PROJECT_NAME"/>
-        <PatternAnnotation xmi:type="patternAnnotation:PropertyPatternAnnotation" aliasId="UserDefinedProperty.PROJECT_NAME-Java" targetObject="//FCMComposite_1" targetPropertyId="PROJECT_NAME-Java"/>
-        <PatternAnnotation xmi:type="patternAnnotation:PropertyPatternAnnotation" aliasId="UserDefinedProperty.PROJECT_NAME-TestJava" targetObject="//FCMComposite_1" targetPropertyId="PROJECT_NAME-TestJava"/>
       </AnnotationTarget>
     </patternAnnotations>
   </eClassifiers>
