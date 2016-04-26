@@ -1,4 +1,4 @@
-package com.anz.bl.transform.pojo;
+package com.anz.HttpJsonToHttpJson.transform.pojo;
 
 import com.anz.common.transform.ITransformPojo;
 

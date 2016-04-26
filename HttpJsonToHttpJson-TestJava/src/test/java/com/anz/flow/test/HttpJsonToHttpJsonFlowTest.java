@@ -23,8 +23,8 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import com.anz.bl.transform.pojo.NumbersInput;
-import com.anz.bl.transform.pojo.Result;
+import com.anz.HttpJsonToHttpJson.transform.pojo.NumbersInput;
+import com.anz.HttpJsonToHttpJson.transform.pojo.Result;
 import com.anz.common.dataaccess.models.iib.Operation;
 import com.anz.common.test.FlowTest;
 import com.anz.common.transform.TransformUtils;

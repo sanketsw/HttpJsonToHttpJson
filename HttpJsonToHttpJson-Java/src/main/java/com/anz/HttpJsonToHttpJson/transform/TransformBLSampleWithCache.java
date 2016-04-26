@@ -1,12 +1,12 @@
 /**
  * 
  */
-package com.anz.bl.transform;
+package com.anz.HttpJsonToHttpJson.transform;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.anz.bl.transform.pojo.Result;
+import com.anz.HttpJsonToHttpJson.transform.pojo.Result;
 import com.anz.common.compute.ComputeInfo;
 import com.anz.common.dataaccess.models.iib.Operation;
 import com.anz.common.domain.OperationDomain;
@@ -27,12 +27,16 @@ public class TransformBLSampleWithCache implements ITransformer<String, String> 
 	 * @see
 	 * com.anz.common.transform.IJsonJsonTransformer#execute(java.lang.String)
 	 */
-	public String execute(String inputJson, Logger logger, ComputeInfo metadata) throws Exception {
+	public String execute(String inputJson, Logger appLogger, ComputeInfo metadata) throws Exception {
+
+		logger.info("inputJson= {}", inputJson);
+		
 		String out = inputJson;
 		try {
+			
 			Result json = (Result) TransformUtils.fromJSON(inputJson,
 					Result.class);
-			logger.info("inputJson= {}", inputJson);
+			
 			if (json.getResult() == null)
 				throw new Exception("invalid response data detected");
 
@@ -45,10 +49,14 @@ public class TransformBLSampleWithCache implements ITransformer<String, String> 
 			json.setComment("read from jdbc type4 connection and cached:" + op);
 
 			out = TransformUtils.toJSON(json);
+			
 		} catch (Exception e) {
 			logger.throwing(e);
 			throw e;
 		}
+		
+		appLogger.info("{}: Response: {}", this.getClass().getName(), out);
+		
 		return out;
 	}
 

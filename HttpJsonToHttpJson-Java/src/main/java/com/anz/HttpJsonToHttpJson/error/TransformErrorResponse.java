@@ -1,14 +1,17 @@
 /**
  * 
  */
-package com.anz.error;
+package com.anz.HttpJsonToHttpJson.error;
 
 import org.apache.logging.log4j.Logger;
 
 import com.anz.common.compute.ComputeInfo;
 import com.anz.common.compute.impl.ComputeUtils;
+import com.anz.common.dataaccess.models.iib.ErrorStatusCode;
 import com.anz.common.dataaccess.models.iib.IFXCode;
+import com.anz.common.domain.ErrorStatusCodeDomain;
 import com.anz.common.domain.IFXCodeDomain;
+import com.anz.common.error.ExceptionMessage;
 import com.anz.common.transform.ITransformer;
 import com.anz.common.transform.TransformUtils;
 import com.ibm.broker.plugin.MbMessage;
@@ -32,18 +35,21 @@ public class TransformErrorResponse implements
 		// Log the error
 		logger.error(inputString);
 
-		// Return the error after mapping errorCode from cache/database
-		IFXCode errorCode = IFXCodeDomain.getInstance().getErrorCode("305");
+		ExceptionMessage exceptionMessage = new ExceptionMessage();
+		exceptionMessage.setShortException(inputString);
+		exceptionMessage.setBrokerAndServiceDetails(metadata);
+		exceptionMessage.setStaticProperties();
 
+		// Return the error after mapping errorCode from cache/database
+		ErrorStatusCode errorCode = ErrorStatusCodeDomain.getInstance().getErrorCode(ErrorStatusCode.TimeoutException);
+		
 		// If error code cannot be mapped, then return the original error
-		if (errorCode == null) {
-			// out = inputString;
-			logger.info("passing the error over as it is {} ", out);
-		} else {
-			errorCode.setDescr(inputString);
-			out = TransformUtils.toJSON(errorCode);
-			logger.info("got the error code object from static data: {}", out);
-		}
+		if (errorCode != null) {			
+			exceptionMessage.setStatus(errorCode);
+		}	
+
+		out = TransformUtils.toJSON(exceptionMessage);
+		logger.info("Error Status Code object {}", out);
 		return out;
 	}
 
