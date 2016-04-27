@@ -20,7 +20,7 @@
             <globalTransactionCorrelator/>
             <parentTransactionCorrelator/>
             <localTransactionCorrelator/>
-            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <bitStreamData encoding="base64Binary"/>
             <eventName literal="Transform Failure.OutTerminal"/>
             <eventFilter dataLocation="true()" isXPath="true"/>
           </eventXMLDoc>
