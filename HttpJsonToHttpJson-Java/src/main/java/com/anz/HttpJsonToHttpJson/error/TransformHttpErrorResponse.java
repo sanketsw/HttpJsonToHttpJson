@@ -21,7 +21,7 @@ import com.ibm.broker.plugin.MbMessageAssembly;
  * @author sanketsw
  * 
  */
-public class TransformErrorResponse implements
+public class TransformHttpErrorResponse implements
 		ITransformer<MbMessageAssembly, String> {
 
 	

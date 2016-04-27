@@ -103,8 +103,6 @@ public class HttpJsonToHttpJsonFlowTest extends FlowTest {
 	
 	public void testMappingNodeOutput() throws ConfigManagerProxyPropertyNotInitializedException, XPathExpressionException, SAXException, IOException, ParserConfigurationException, TransformerException, JSONException {
 		
-		Node n = null;
-		
 		// Mapping Node
 		List<RecordedTestData> dataList = getTestDataList("Mapping1");
 		
@@ -122,7 +120,7 @@ public class HttpJsonToHttpJsonFlowTest extends FlowTest {
 	
 	public void testSimpleTransformNodeOutput() throws ConfigManagerProxyPropertyNotInitializedException, XPathExpressionException, SAXException, IOException, ParserConfigurationException {	
 		// Pretransform Node
-		List<RecordedTestData> dataList = getTestDataList("com.anz.bl.transform.TransformBLSample");
+		List<RecordedTestData> dataList = getTestDataList("Transform Request");
 		
 		String json = getNodeOutputJsonStringFromBlob(dataList.get(0));
 		NumbersInput out = gson.fromJson(json, NumbersInput.class);
@@ -137,8 +135,6 @@ public class HttpJsonToHttpJsonFlowTest extends FlowTest {
 
 	public void testHttpRequestNodeOutput() throws ConfigManagerProxyPropertyNotInitializedException, XPathExpressionException, SAXException, IOException, ParserConfigurationException {	
 
-		Node n = null;
-		
 		// HttpRequest Node
 		List<RecordedTestData> dataList = getTestDataList("HTTP Request");
 		
@@ -155,10 +151,8 @@ public class HttpJsonToHttpJsonFlowTest extends FlowTest {
 	
 	public void testFinalResult() throws XPathExpressionException, SAXException, IOException, ParserConfigurationException, ConfigManagerProxyPropertyNotInitializedException {	
 		
-		Node n = null;
-		
 		// PostTransform node
-		List<RecordedTestData> dataList = getTestDataList("com.anz.bl.transform.TransformBLSampleWithCache");
+		List<RecordedTestData> dataList = getTestDataList("Transform Response");
 		
 		String json = getNodeOutputJsonStringFromBlob(dataList.get(0));
 		Result out = gson.fromJson(json, Result.class);

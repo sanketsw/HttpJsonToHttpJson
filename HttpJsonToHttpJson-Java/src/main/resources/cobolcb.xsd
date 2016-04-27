@@ -1,0 +1,11 @@
+000100 01  CUSTOMER-RECORD.
+           05  CUSTOMER-NUMBER                  PIC X(06).
+           05  CUSTOMER-NAME                    PIC X(35).
+           05  CUSTOMER-ADDRESS-INFO.
+               10  ADDRESS-LINE-1               PIC X(40).
+               10  ADDRESS-LINE-2               PIC X(40).
+               10  CITY                         PIC X(25).
+               10  STATE                        PIC X(02).
+               10  ZIP-CODE                     PIC X(05).
+               10  ZIP-CODE-PLUS4               PIC X(04).
+           05  CUSTOMER-DISCOUNT-CODE           PIC 9(03).
